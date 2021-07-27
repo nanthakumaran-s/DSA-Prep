@@ -10,3 +10,4 @@ This repo contains the topics that are important for technical interviews
 
 - Arrays
 - Trie
+- Heap

@@ -40,7 +40,7 @@ class Trie:
 
 class Solution:
     # O(bns) time | O(n) space 
-    # n = number of substrings | b = length of big string | s = length of largest small string in small strings 
+    # n = number of substrings | b = length of big string | s = length of longest small string in small strings 
     def multiStringSearch(self, bigString, smallStrings):
         return [self._isContains(bigString, smallString) for smallString in smallStrings]
 
