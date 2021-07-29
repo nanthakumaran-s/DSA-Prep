@@ -1,13 +1,16 @@
+# O(n + log(n)) time | O(1) space
 class MinHeap:
     def __init__(self, array):
         self.heap = self._buildHeap(array)
 
+    # O(n)
     def _buildHeap(self, array):
         firstParentIdx = (len(array) - 2) // 2
         for currentIdx in reversed(range(firstParentIdx)):
             self._siftDown(currentIdx, len(array) - 1, array)
         return array
 
+    # O(log(n))
     def _siftUp(self, currentIdx, heap):
         parentIdx = (currentIdx - 1) // 2
         while currentIdx > 0 and heap[parentIdx] > heap[currentIdx]:
@@ -15,6 +18,7 @@ class MinHeap:
             currentIdx = parentIdx
             parentIdx = (currentIdx - 1) // 2 
 
+    # O(log(n))
     def _siftDown(self, currentIdx, endIdx, heap):
         childOneIdx = currentIdx * 2 + 1
         while childOneIdx <= endIdx:
