@@ -64,6 +64,7 @@ class Solution:
                 self.maxHeap.insert(result)
         return self.maxHeap.peak()
 
+# O(nlog(n)) time | O(1) space
 if __name__ == "__main__":
     s = Solution([2, 7, 4, 10])
     print(s.lastStoneWeight())
