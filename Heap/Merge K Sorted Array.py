@@ -5,7 +5,7 @@ class Heap:
 
     def _buildHeap(self, array):
         lastParentIdx = (len(array) - 2) // 2
-        for curentIdx in reversed(range(lastParentIdx)):
+        for curentIdx in reversed(range(lastParentIdx + 1)):
             self._siftDown(curentIdx, self.length - 1, array)
         return array
 
@@ -68,6 +68,7 @@ class Solution:
             while self.heap.length > 1:
                 results.append(self.heap.remove())
             startColIdx += 1
+        results.append(self.heap.remove())
         return results
 
     def printArr(self):

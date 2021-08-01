@@ -5,7 +5,7 @@ class Heap:
     
     def _buildHeap(self, array):
         parentIdx = (len(array) - 2) // 2
-        for curentIdx in reversed(range(parentIdx)):
+        for curentIdx in reversed(range(parentIdx + 1)):
             self._siftDown(curentIdx, len(array) - 1, array)
         return array
     
@@ -37,13 +37,13 @@ class Heap:
     def insert(self, value):
         self.heap.append(value)
         self.length += 1
-        self._siftUp(len(self.heap) - 1, self.heap)
+        self._siftUp(self.length - 1, self.heap)
 
     def remove(self):
-        self._swap(0, len(self.heap) - 1, self.heap)
+        self._swap(0, self.length - 1, self.heap)
         value = self.heap.pop()
         self.length -= 1
-        self._siftDown(0, len(self.heap) - 1, self.heap)
+        self._siftDown(0, self.length - 1, self.heap)
         return value
 
     def _swap(self, i, j, heap):
@@ -55,13 +55,13 @@ class Solution:
 
     def lastStoneWeight(self):
         while self.maxHeap.length > 1:
-            self.maxHeap.peak()
             firstStone = self.maxHeap.remove()
             secondStone = self.maxHeap.remove()
             
-            result = abs(firstStone - secondStone)
+            result = firstStone - secondStone
             if result != 0:
                 self.maxHeap.insert(result)
+                
         return self.maxHeap.peak()
 
 # O(nlog(n)) time | O(1) space

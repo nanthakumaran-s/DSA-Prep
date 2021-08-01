@@ -6,7 +6,7 @@ class Heap:
 
     def _buildHeap(self, array):
         lastParentIdx = (len(array) - 2) // 2
-        for curentIdx in reversed(range(lastParentIdx)):
+        for curentIdx in reversed(range(lastParentIdx + 1)):
             self._siftDown(curentIdx, len(array) - 1, array)
         return array
 

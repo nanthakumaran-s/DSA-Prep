@@ -6,7 +6,7 @@ class MinHeap:
     # O(n)
     def _buildHeap(self, array):
         firstParentIdx = (len(array) - 2) // 2
-        for currentIdx in reversed(range(firstParentIdx)):
+        for currentIdx in reversed(range(firstParentIdx + 1)):
             self._siftDown(currentIdx, len(array) - 1, array)
         return array
 
